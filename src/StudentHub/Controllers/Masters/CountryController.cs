@@ -71,7 +71,7 @@ namespace API.Controllers.Masters
             var result = await _countryService.UpdateAsync(id, request, cancellationToken);
             return result.IsSuccess ? Ok(result.Value) : ToErrorResult(result);
         }
-
+         
         [HttpDelete("{id:int}")]
         [ProducesResponseType(typeof(SuccessResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
