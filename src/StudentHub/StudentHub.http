@@ -1,0 +1,50 @@
+@API_HostAddress = https://localhost:7096
+
+### 1. Get a token (copy "accessToken" from the response into @token below)
+POST {{API_HostAddress}}/api/Auth/token
+Content-Type: application/json
+
+{
+  "username": "ajay",
+  "password": "any"
+}
+
+###
+@token = paste-access-token-here
+
+### 2. Get all students
+GET {{API_HostAddress}}/api/Student
+Authorization: Bearer {{token}}
+
+### 3. Get one student
+GET {{API_HostAddress}}/api/Student/1
+Authorization: Bearer {{token}}
+
+### 4. Create a student
+POST {{API_HostAddress}}/api/Student
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Ravi Kumar",
+  "dob": "2002-05-14",
+  "mobileNo": "9876543210",
+  "createdBy": 1
+}
+
+### 5. Update a student
+PUT {{API_HostAddress}}/api/Student/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Ravi K",
+  "dob": "2002-05-14",
+  "mobileNo": "9876543210",
+  "modifiedBy": 1
+}
+
+### 6. Delete a student
+DELETE {{API_HostAddress}}/api/Student/1?modifiedBy=1
+Authorization: Bearer {{token}}
