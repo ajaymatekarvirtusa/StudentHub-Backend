@@ -15,7 +15,7 @@ namespace Repositories.DBContext
 
             if (string.IsNullOrWhiteSpace(value))
                 throw new InvalidOperationException(
-                    "Connection string 'ConnectionStrings:StudentHubDb' is missing in appsettings.json.");
+                    "Connection string 'ConnectionStrings:StudentHubDb' is missing. Set it in User Secrets (or appsettings) - see README.md.");
 
             Connection = new SqlConnection(Decode(value));
         }

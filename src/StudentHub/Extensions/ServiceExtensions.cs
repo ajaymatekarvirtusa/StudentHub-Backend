@@ -64,7 +64,7 @@ namespace API.Extensions
                       ?? throw new InvalidOperationException("The 'Jwt' section is missing in appsettings.json.");
 
             if (string.IsNullOrWhiteSpace(jwt.SecretKey) || Encoding.UTF8.GetByteCount(jwt.SecretKey) < 32)
-                throw new InvalidOperationException("Jwt:SecretKey must be at least 32 bytes long for HS256.");
+                throw new InvalidOperationException("Jwt:SecretKey is missing or shorter than 32 bytes (HS256). Set it in User Secrets - see README.md.");
 
             services.AddAuthentication(options =>
             {
